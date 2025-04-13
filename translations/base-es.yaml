@@ -25,8 +25,8 @@ steamPage:
 global:
     loading: Cargando
     error: Error
-    thousandsDivider: ,
-    decimalSeparator: "."
+    thousandsDivider: .
+    decimalSeparator: ","
     suffix:
         thousands: k
         millions: M
