@@ -25,8 +25,8 @@ steamPage:
 global:
     loading: Cargando
     error: Error
-    thousandsDivider: .
-    decimalSeparator: ","
+    thousandsDivider: ,
+    decimalSeparator: "."
     suffix:
         thousands: k
         millions: M
@@ -347,7 +347,7 @@ ingame:
         cutSelection: Cortar
         copySelection: Copiar
         clearSelection: Limpiar selección
-        pipette: Cuentagotas
+        pipette: Copiar edificio
         switchLayers: Cambiar capas
         clearBelts: Borrar cintas
     colors:
@@ -368,7 +368,7 @@ ingame:
             range: Rango
             storage: Almacenamiento
             oneItemPerSecond: 1 elemento / segundo
-            itemsPerSecond: <x> elementos / s
+            itemsPerSecond: <x> elementos / segundo
             itemsPerSecondDouble: (x2)
             tiles: <x> casillas
     levelCompleteNotification:
@@ -390,14 +390,14 @@ ingame:
         dataSources:
             stored:
                 title: Almacenado
-                description: Muestra la cantidad de figuras guardadas en tu Centro.
+                description: Muestra la cantidad de figuras guardadas en tu HUB.
             produced:
                 title: Producido
                 description: Muestra todas las figuras que tu fábrica al completo produce,
                     incluyendo productos intermedios.
             delivered:
                 title: Entregados
-                description: Muestra las figuras que son entregadas a tu Centro.
+                description: Muestra las figuras que son entregadas a tu HUB.
         noShapesProduced: Todavía no se han producido figuras.
         shapesDisplayUnits:
             second: <shapes> / s
@@ -415,7 +415,7 @@ ingame:
         cost: Coste
     waypoints:
         waypoints: Marcadores
-        hub: Centro
+        hub: HUB
         description: Click izquierdo sobre un marcador para ir ahí, click derecho para
             borrarlo. <br><br> Pulsa <keybinding> para crear un marcador de la
             vista actual o <strong>click derecho</strong> para crear un marcador
@@ -431,7 +431,7 @@ ingame:
             1_1_extractor: ¡Coloca un <strong>extractor</strong> encima de un
                 <strong>círculo</strong> para extraerlo!
             1_2_conveyor: "¡Conecta el extractor con una <strong>cinta
-                transportadora</strong> a tu Centro!<br><br> Pista:
+                transportadora</strong> a tu HUB!<br><br> Pista:
                 ¡<strong>Pulsa y arrastra</strong> la cinta transportadora con
                 el ratón!"
             1_3_expand: '¡Esto <strong>NO</strong> es un "juego de esperar"! Construye más
@@ -450,7 +450,7 @@ ingame:
                 para acelerar este lento proceso!<br><br> PD: Usa las teclas
                 <strong>0-9 </strong> para acceder a los edificios más rápido!"
             3_1_rectangles: "¡Ahora consigamos unos rectangulos! <strong>construye 4
-                extractores</strong> y conectalos a el Centro.<br><br> PD:
+                extractores</strong> y conectalos a el HUB.<br><br> PD:
                 Manten apretado <strong>SHIFT</strong> mientrás pones cintas
                 transportadoras para activar el planeador de cintas!"
             21_1_place_quad_painter: ¡Pon el <strong>pintador cuádruple</strong> y consigue
@@ -467,8 +467,8 @@ ingame:
                 dos."
             1_2_hold_and_drag: Mantener y arrastrar
     connectedMiners:
-        one_miner: 1 Minero
-        n_miners: <amount> Mineros
+        one_miner: 1 Extractor
+        n_miners: <amount> Extractores
         limited_items: Limitado a <max_throughput>
     watermark:
         title: Versión demo
@@ -642,7 +642,8 @@ buildings:
         quad:
             name: Pintor (Cuádruple)
             description: Te permite colorear cada cuadrante de la forma individualemte.
-                ¡Solo las ranuras con una <strong>señal verdadera</strong> en la
+                ¡Solo las ranuras con una <strong>señal verdadera</strong>!
+                (Verdaderas significa una forma, color o valor booleano "1") en la
                 capa de cables seran pintadas!
     trash:
         default:
@@ -650,7 +651,7 @@ buildings:
             description: Acepta formas desde todos los lados y las destruye. Para siempre.
     balancer:
         default:
-            name: Equlibrador
+            name: Unidor-Separador
             description: Multifuncional - Distribuye igualmente todas las entradas en las
                 salidas.
         merger:
@@ -771,7 +772,7 @@ buildings:
     goal_acceptor:
         default:
             name: Aceptador de objetivos
-            description: Tranporta figuras al aceptador de objetivos para ponerlas como
+            description: Transporta figuras al aceptador de objetivos para ponerlas como
                 objetivo.
     block:
         default:
@@ -810,7 +811,7 @@ storyRewards:
     reward_splitter:
         title: Separador/Fusionador
         desc: Has desbloqueado el <strong>separador</strong> , una variante de el
-            <strong>balanceador</strong> - Acepta una entrada y la separa en
+            <strong>unidor-separador</strong> - Acepta una entrada y la separa en
             dos!
     reward_tunnel:
         title: Túnel
@@ -852,10 +853,10 @@ storyRewards:
         desc: ¡Lo hiciste! Has desbloqueado el <strong>modo de juego libre</strong>!
             ¡Esto significa que las formas ahora son
             <strong>aleatoriamente</strong> generadas!<br><br> Debido a que
-            desde ahora de adelante el Centro pedirá una cantidad específica de
+            desde ahora de adelante el HUB pedirá una cantidad específica de
             formas <strong>por segundo</strong>, ¡Te recomiendo encarecidamente
             que construyas una máquina que automáticamente envíe la forma
-            pedida!<br><br> El Centro emite la forma pedida en la capa de
+            pedida!<br><br> El HUB emite la forma pedida en la capa de
             cables, así que todo lo que tienes que hacer es analizarla y
             automáticamente configurar tu fábrica basada en ello.
     reward_blueprints:
@@ -877,14 +878,14 @@ storyRewards:
         desc: ¡Felicidades! ¡Por cierto, hay más contenido planeado para el juego
             completo!
     reward_balancer:
-        title: Balanceador
-        desc: El <strong>balanceador</strong> multifuncional ha sido desbloqueado -
+        title: Unidor-separador
+        desc: El <strong>unidor-separador</strong> multifuncional ha sido desbloqueado -
             ¡Este puede ser usado para construir fabricas más grandes al
             <strong>separar y mezclar items</strong> hacia múltiples cintas!
     reward_merger:
         title: Unión compacta
         desc: Has desbloqueado la variante <strong>unión</strong> de el
-            <strong>balanceador</strong> - ¡Acepta dos entradas y las une en una
+            <strong>unidor-separador</strong> - ¡Acepta dos entradas y las une en una
             sola cinta!
     reward_belt_reader:
         title: Lector de cinta
@@ -923,7 +924,7 @@ storyRewards:
             la capa de cables! Con esto ahora tienes tres opciones para
             continuar el juego:<br><br> - Construir una <strong>maquina
             automatizada</strong> para crear cualquier forma que te pida el
-            Centro (¡Te recomiendo que lo intentes!).<br><br> - Construir algo
+            HUB (¡Te recomiendo que lo intentes!).<br><br> - Construir algo
             genial con los cables.<br><br> - Continuar jugando de la manera
             regular.<br><br> ¡Cualquiera que eligas, recuerda divertirte!
     reward_wires_painter_and_levers:
@@ -1042,13 +1043,13 @@ settings:
                 oculta algunos elementos de la interfaz hasta cierto nivel para
                 hacer más fácil la introducción al juego.
         enableTunnelSmartplace:
-            title: Túneles inteligentes
+            title: Colocación de túneles inteligente
             description: Si está activado, al colocar túneles se eliminará automáticamente
                 las cintas transportadoras innecesarias. También te permite
                 arrastrar con el ratón y los túneles restantes serán eliminados.
         vignette:
-            title: Viñeta
-            description: Activa el efecto viñeta que oscurece las esquinas de la pantalla y
+            title: Esquinas difuminadas
+            description: Activa el efecto viñeteado que oscurece las esquinas de la pantalla y
                 hace el texto más fácil de leer.
         rotationByBuilding:
             title: Rotación por tipo de edificio
@@ -1093,8 +1094,8 @@ settings:
             description: Este juego está dividido en chunks de 16x16 cuadrados, si esta
                 opción es habilitada los bordes de cada chunk serán mostrados.
         pickMinerOnPatch:
-            title: Elegir el minero en la veta de recursos
-            description: Activado por defecto, selecciona el minero si usas el cuentagotas
+            title: Elegir el Extractor en la veta de recursos
+            description: Activado por defecto, selecciona el Extractor si usas el cuentagotas
                 sobre una veta de recursos.
         simplifiedBelts:
             title: Cintas trasportadoras simplificadas (Feo)
@@ -1110,7 +1111,7 @@ settings:
         zoomToCursor:
             title: Hacer zoom donde está el cursor
             description: Si se activa, se hará zoom en al dirección donde esté tu cursor, a
-                diferencia de hacer zoom en el centro de la pantalla.
+                diferencia de hacer zoom en el HUB de la pantalla.
         mapResourcesScale:
             title: Tamaño de recursos en el mapa
             description: Controla el tamaño de los recursos en la vista de aérea del mapa
@@ -1181,7 +1182,7 @@ keybindings:
         placementDisableAutoOrientation: Desactivar orientación automática
         placeMultiple: Permanecer en modo de construcción
         placeInverse: Invierte automáticamente la orientación de las cintas transportadoras
-        balancer: Balanceador
+        balancer: unidor-separador
         storage: Almacenamiento
         constant_signal: Señal constante
         logic_gate: Puerta lógica
@@ -1230,9 +1231,9 @@ demo:
         exportingBase: Exportando la base completa como imagen
     settingNotAvailable: No disponible en la versión de prueba.
 tips:
-    - El Centro acepta entradas de cualquier tipo ¡No solo la forma actual!
+    - El HUB acepta entradas de cualquier tipo ¡No solo la forma actual!
     - Trata de que tus fábricas sean modulares - ¡Te servirá en el futuro!
-    - No construyas muy cerca del Centro ¡O se volverá todo un caos!
+    - No construyas muy cerca del HUB ¡O se volverá todo un caos!
     - Si apilar las formas no funciona, intenta intercambiar las entradas.
     - Puedes activar la dirección del planeador de cintas apretando  <b>R</b>.
     - Mantener apretado <b>CTRL</b> te permite poner cintas sin auto-orientación.
@@ -1262,7 +1263,7 @@ tips:
     - Puedes apretar <b>ALT</b> para invertir la dirección a la que van las
       cintas.
     - ¡La eficiencia es la clave!
-    - Mientras más lejos del Centro estés más complejas serán las formas que te
+    - Mientras más lejos del HUB estés más complejas serán las formas que te
       encuentres.
     - Las máquinas tienen una velocidad limitada, divídelas para una máxima
       eficiencia.
@@ -1286,7 +1287,7 @@ tips:
     - Echa un vistazo más de cerca al mezclador de colores, y tus preguntas
       serán respondidas.
     - Usa <b>CTRL</b> + Click izquierdo para seleccionar un área.
-    - Construir demasiado cerca del Centro puede interponerse en el camino de
+    - Construir demasiado cerca del HUB puede interponerse en el camino de
       proyectos a futuro.
     - El icono del alfiler junto a cada forma de la lista de mejoras lo fija a
       la pantalla.
@@ -1299,7 +1300,7 @@ tips:
     - ¡Este juego tiene un montón de atajos útiles! Asegúrate de revisar la
       página de ajustes.
     - Este juego tiene muchos ajustes, ¡asegúrate de revisarlos!
-    - ¡El marcador de tu Centro tiene una pequeña brújula para indicar su
+    - ¡El marcador de tu HUB tiene una pequeña brújula para indicar su
       dirección!
     - Para despejar las cintas transportadoras, corta el área y luego pégala en
       el mismo lugar.
@@ -1351,7 +1352,7 @@ puzzleMenu:
         easy: Fácil
         medium: Medio
         hard: Dificil
-        unknown: Unrated
+        unknown: No calificado
     dlcHint: ¿Ya compraste el DLC? Asegurate de tenerlo activado haciendo click
         derecho a shapez.io en tu biblioteca, selecionando propiedades > DLCs.
     search:
